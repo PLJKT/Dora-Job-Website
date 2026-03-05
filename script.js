@@ -27,6 +27,7 @@ const jobsData = [
 ];
 
 // Load jobs onto page
+// 替换原来的loadJobs函数
 function loadJobs() {
     const container = document.getElementById('jobs-container');
     console.log('Container:', container);
@@ -55,7 +56,6 @@ function loadJobs() {
     console.log('Jobs loaded:', jobsData.length);
 }
 
-
 // Simple apply function (can be enhanced with Netlify Forms)
 function applyJob(jobId) {
     const job = jobsData.find(j => j.id === jobId);
@@ -77,5 +77,6 @@ window.addEventListener('load', function() {
     console.log('Page fully loaded');
     loadJobs();
 });
+
 
 
