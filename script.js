@@ -29,6 +29,12 @@ const jobsData = [
 // Load jobs onto page
 function loadJobs() {
     const container = document.getElementById('jobs-container');
+    console.log('Container:', container);
+    
+    if (!container) {
+        console.error('Jobs container not found!');
+        return;
+    }
     
     jobsData.forEach(job => {
         const jobCard = document.createElement('div');
@@ -45,7 +51,10 @@ function loadJobs() {
         `;
         container.appendChild(jobCard);
     });
+    
+    console.log('Jobs loaded:', jobsData.length);
 }
+
 
 // Simple apply function (can be enhanced with Netlify Forms)
 function applyJob(jobId) {
@@ -56,3 +65,17 @@ function applyJob(jobId) {
 
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', loadJobs);
+
+// 调试代码 - 添加到script.js最后
+console.log('=== DEBUG INFO ===');
+console.log('Script loaded:', typeof loadJobs);
+console.log('Jobs data:', jobsData);
+console.log('Container element:', document.getElementById('jobs-container'));
+
+// 确保页面完全加载后执行
+window.addEventListener('load', function() {
+    console.log('Page fully loaded');
+    loadJobs();
+});
+
+
